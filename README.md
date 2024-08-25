@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 슬랙 웹훅을 이용한 간단한 에러 핸들링
 
-## Getting Started
+## 프로젝트 소개
 
-First, run the development server:
+이 프로젝트는 웹 애플리케이션에서 발생하는 에러를 슬랙 웹훅을 통해 슬랙 채널로 자동 보고하는 기능을 구현합니다. </br>
+🛠️ 이 시스템을 통해 에러를 실시간으로 모니터링하고 빠르게 대응할 수 있어요! </br>
+개발자는 문제를 신속하게 파악하고 해결할 수 있어 사용자 경험을 개선할 수 있습니다. 😊
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 환경 설정
+
+먼저, 슬랙 웹훅 URL을 프로젝트에 설정해 주세요. </br>
+`.env.local` 파일을 생성하고, 아래 내용을 추가하면 됩니다. 이 URL은 슬랙에서 발급받은 웹훅 URL입니다.
+
+```env
+NEXT_PUBLIC_SLACK_WEBHOOK_URL=''
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+이제 슬랙이 여러분의 에러를 받아줄 준비가 완료되었습니다! 🎯
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 슬랙 메시지에 원하는 내용 담기
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`route.ts` 파일에 여러분이 원하는 내용을 자유롭게 담아보세요! </br>
+📬 `error.tsx` 페이지에서 발생한 에러 정보를 슬랙으로 전송할 수 있도록 값을 설정할 수 있습니다.
 
-## Learn More
+```tsx
+// example: 원하는 데이터를 설정
+const messagePayload = {
+  text: `에러 발생 위치: ${location}\n에러 메시지: ${errorMessage}`,
+};
+```
 
-To learn more about Next.js, take a look at the following resources:
+이제 슬랙에 에러 정보를 멋지게 전달할 수 있어요! 🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 마치며,
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+이제 슬랙을 통해 실시간으로 에러를 모니터링하고, 더 빠르게 문제를 해결해 보세요! 🎉 </br>
+매일 더 안정적이고 신뢰할 수 있는 웹 애플리케이션을 만들어 나가세요! 🚀
